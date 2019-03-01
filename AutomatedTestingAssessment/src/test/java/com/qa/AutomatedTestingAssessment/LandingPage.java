@@ -1,9 +1,7 @@
 package com.qa.AutomatedTestingAssessment;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 public class LandingPage {
+<<<<<<< HEAD
 	@FindBy(xpath = Constants.newButton)
 	private WebElement newButton;
 
@@ -77,16 +75,7 @@ public class LandingPage {
 		newEmail.sendKeys(email);
 		subNewUser.click();
 	}
+=======
+>>>>>>> parent of c1db82f... first and second task completed
 
-	// public void input(String username, String password) {
-	// demoUser.sendKeys(username);
-	// demoPassword.sendKeys(password);
-	// demoSubmit.click();
-	// }
-	//
-	// public void login(String username, String password) {
-	// loginUser.sendKeys(username);
-	// loginPassword.sendKeys(password);
-	// loginSubmit.click();
-	// }
 }
