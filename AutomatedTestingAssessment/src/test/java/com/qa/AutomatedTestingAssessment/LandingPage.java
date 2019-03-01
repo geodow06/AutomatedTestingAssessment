@@ -17,13 +17,15 @@ public class LandingPage {
 	private WebElement itemName;
 	@FindBy(xpath = Constants.freestyle)
 	private WebElement freestyle;
-	@FindBy(id = Constants.save)
-	private WebElement save;
+//	@FindBy(id = Constants.save)
+//	private WebElement save;
 	@FindBy(xpath = Constants.backToDash)
 	private WebElement backToDash;
-	@FindBy(xpath = Constants.ok)
+//	@FindBy(xpath = Constants.ok) 
+	@FindBy(partialLinkText = "ok")
 	private WebElement ok;
-	@FindBy(className = "model-link inside")
+	@FindBy(className = "model-link inside") 
+	
 	private WebElement itemCheck;
 	@FindBy(xpath = Constants.manJen)
 	private WebElement manJen;
@@ -43,7 +45,8 @@ public class LandingPage {
 	private WebElement newEmail;
 	@FindBy(xpath = Constants.subNewUser)
 	private WebElement subNewUser;
-
+	@FindBy(partialLinkText = "Save") 
+	private WebElement save;
 	public void logIn(String user, String pass) {
 
 		userName.sendKeys(user);
@@ -52,10 +55,11 @@ public class LandingPage {
 	}
 
 	public void createItem(String item) throws InterruptedException {
-		newButton.click();
+		newButton.click(); 
+		Thread.sleep(1000);
 		itemName.sendKeys(item);
 		freestyle.click();
-		ok.click(); 
+		ok.click();  
 		Thread.sleep(2000);
 		save.click();
 		backToDash.click();

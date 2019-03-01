@@ -1,21 +1,38 @@
 package com.qa.AutomatedTestingAssessment;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+
 import cucumber.api.PendingException;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class StepDefinition {
-
+	ChromeDriver driver;
+	@Before
+	public void setup() {
+		
+	}
+	
+	@After
+	public void teardown() {
+//		driver.quit();
+	}
 	@Given("^I go to \"([^\"]*)\" website$")
 	public void i_go_to_website(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		System.setProperty("webdriver.chrome.driver", "C:/Users/Admin/Desktop/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(Constants.url);
 	}
 
 	@Given("^the username is present \"([^\"]*)\"$")
 	public void the_username_is_present(String arg1) throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
+		LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class); 
+		landingPage.logIn("admin", "admin");
 		throw new PendingException();
 	}
 

@@ -68,8 +68,7 @@ public class DDTTest {
 		}
 		XSSFSheet sheet = workbook.getSheetAt(0);
 
-		Object[][] xld = new Object[sheet.getPhysicalNumberOfRows() - 1][sheet.getRow(1).getPhysicalNumberOfCells()
-				+ 1];
+		Object[][] xld = new Object[sheet.getPhysicalNumberOfRows() - 1][6];
 
 		for (int row = 1; row < sheet.getPhysicalNumberOfRows(); row++) {
 			int finalCol = 0;
@@ -88,9 +87,9 @@ public class DDTTest {
 	@Before
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "C:/Users/Admin/Desktop/chromedriver.exe");
-		// ChromeOptions chromeOptions = new ChromeOptions();
-		// chromeOptions.addArguments("--headless");
-		// driver = new ChromeDriver(chromeOptions);
+//		 ChromeOptions chromeOptions = new ChromeOptions();
+//		 chromeOptions.addArguments("--headless");
+//		 driver = new ChromeDriver(chromeOptions);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 
@@ -107,11 +106,6 @@ public class DDTTest {
 		driver.get(Constants.url);
 		LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
 		landingPage.logIn("admin", "admin");
-		System.out.println(username);
-		System.out.println(fullname);
-		System.out.println(password);
-		System.out.println(confirmPassword);
-		System.out.println(email);
 		landingPage.createUser(username, fullname, password, confirmPassword, email);
 		WebElement currentUser = driver.findElement(By.partialLinkText(username));
 
